@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import hats from '../public/data/hats'
+
 class App extends React.Component {
   constructor (props) {
     super(props),
@@ -18,15 +20,19 @@ class App extends React.Component {
     this.setState((prevState) => {
       return {count: prevState.count + 1}
       })
-    console.log(this.state.count)
   }
 
   randomHat () {
-    var hats = ['bowler', 'top', 'rasta', 'baseball', 'dunce', 'party']
+    hats.map((hat) => {
+      if (hat.hat == this.state.hat) {
+        hat.count = this.state.count
+      }
+    })
     var randomNum = Math.floor(Math.random() * hats.length)
     this.setState(() => {
       return {
-        hat: hats[randomNum]
+        hat: hats[randomNum].hat,
+        count: hats[randomNum].count
       }
     })
   }
