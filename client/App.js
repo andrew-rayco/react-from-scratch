@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 class App extends React.Component {
   constructor (props) {
     super(props),
-    this.state = { hat: bowler }
+    this.state = { hat: 'bowler' }
   }
 
   render() {
@@ -15,6 +15,12 @@ class App extends React.Component {
 
 }
 
-renderPoint = document.getElementById('app')
+function test (props) {
+  return (
+    <h1>This is a test</h1>
+  )
+}
 
-ReactDOM.render(App, renderPoint)
+var renderPoint = document.getElementById('app')
+
+ReactDOM.render(<App />, renderPoint)
